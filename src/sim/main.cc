@@ -29,7 +29,7 @@
 #include <Python.h>
 
 #include <iostream>
-
+#include "test.h"
 #include "pybind11/embed.h"
 #include "pybind11/pybind11.h"
 
@@ -47,6 +47,7 @@ namespace py = pybind11;
 int
 main(int argc, char **argv)
 {
+    MQSim_Dummy_Link();
     // Initialize gem5 special signal handling.
     initSignals();
 

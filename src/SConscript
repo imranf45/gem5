@@ -64,6 +64,8 @@ if env['CONF']['USE_EFENCE']:
 # Children need to see the environment
 Export('env')
 
+env.Append(CPPPATH=['#ext/mqsim/src/sim'])
+
 build_env = list(env['CONF'].items())
 
 from code_formatter import code_formatter
@@ -721,6 +723,12 @@ lib_filter = with_tag('gem5 lib')
 # option doesn't affect gem5 built as a program.
 if GetOption('without_python'):
     lib_filter = lib_filter & without_tag('python')
+
+# Include mqsim library
+if os.path.isdir('ext/mqsim'):
+    SConscript('ext/mqsim/SConscript')
+
+
 
 StaticLib(lib_name, lib_filter)
 SharedLib(lib_name, lib_filter)
