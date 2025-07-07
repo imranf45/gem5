@@ -1,0 +1,3 @@
+[submodule "ext/mqsim"]
+	path = ext/mqsim
+	url = git@github.com:imranf45/mqsim.git
